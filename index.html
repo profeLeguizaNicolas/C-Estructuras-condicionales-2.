@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Estructuras condicionales múltiples.</title>
+        <link rel="shortcut icon" href="Imagenes/icono.png" type="image/x-icon">
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+    </head>
+    <body>
+        
+        <h1>Estructuras condicionales 2</h1>
+        <ol>
+        <li>
+        <h4>Introducción:</h4>
+        <p>
+            En una estructura condicional múltiple, se evalúa una variable y se la compara con múltiples valores <code>llamados casos</code>. Si la variable es igual a alguno de los mencionados valores, es decir, si se cumple alguno de los <code>casos</code>, el <b>algoritmo</b> seleccionará el camino asociado a dicho <code>caso</code> y se realizarán todas las <b>acciones</b> dentro de él. A continuación, se ilustra el diagrama de flujo de una estructura condicional múltiple:
+        </p>
+        <div class="figure">
+        <img src="Imagenes/imagen1.png" alt="Descripción de la imagen">
+        </div>
+        <p style="text-align: center;">
+            <i>Diagrama de flujo de la estructura <code>switch</code>.</i>
+        </p>
+        <p>
+            En este ejemplo, la variable de la condición es comparada con los valores <b>A</b>, <b>B</b> y <b>C</b>. Si la variable de la condición coincide con alguno de los valores, se realizarán las acciones asociadas a ese camino. Esto quiere decir que, si la variable de la condición coincide con el valor <b>A</b>, se realizará la <code>Acción 1</code>, si coincide con el valor <b>B</b>, se realizará la <code>Acción 2</code>, y si coincide con el valor <b>C</b>, se realizará la <code>Acción 3</code>.
+        </p>
+<pre><code class="language-cpp">
+    switch( variable )
+        {
+            case 'A':
+                accion1;
+            break;
+            case 'B':
+                accion2;
+            break;
+            case 'C':
+                accion3;
+            break;
+            default:
+                accion4;
+            break;
+        }
+</code></pre>
+        <p style="text-align: center;">
+            <i>Sintaxis en <code>C</code> de un <b>switch</b>.</i>
+        </p>
+        <p>
+            La estructura <b>switch</b> posee además un espacio <code>default</code> para realizar una acción en la situación de que la variable no se corresponda con ninguno de los casos comprendidos.
+        </p>
+        <fieldset>
+            <legend><i>Ejemplo</i></legend>
+            <p>
+                Realizar un programa en <code>C</code> que imprima en pantalla en forma textual los números enteros entre el <b>1</b> y el <b>3</b>, ambos inclusive, utilizando la estructura <code>switch</code>
+            </p>
+            <b>Solución:</b>
+<pre><code class="language-cpp">
+    #include&lt;stdio.h>
+    
+    int main(){
+        int numero;
+        scanf("%i",&numero);
+        switch(numero)
+            {
+                case 1:
+                    printf("Uno.");
+                break;
+                case 2:
+                    printf("Dos.");
+                break;
+                case 3:
+                    printf("Tres.");
+                break;
+                default:
+                    printf("Numero incorrecto");
+                break;
+            }
+        return 0;
+    }
+</code></pre>
+        </fieldset>
+        </li>
+        <li><h4>Estructura condicional múltiple <code>else if</code> <b>sino si</b></h4>
+        <p>
+            En una estructura condicional múltiple <b>sino si</b> (conocida por su nombre en inglés <code>else if</code>), se utiliza para evaluar múltiples condiciones y ejecutar diferentes acciones según el resultado de cada evaluación. A continuación, se ilustra el diagrama de flujo de una estructura condicional múltiple <b>sino si</b>.
+        </p>
+        <div class="figure">
+        <img src="Imagenes/imagen2.png" alt="Descripción de la imagen">
+        </div>
+        <p style="text-align: center;">
+            <i>Diagrama de flujo estructura <code>sino si</code>.</i>
+        </p>
+        <p>
+            En esta estructura, se evalúa la <code>condición 1</code>, y en caso de que el resultado sea <b style="color:green">verdadero</b>, se realizará la <code>acción 1</code>. Pero en caso de que el resultado sea <b style="color:red">falso</b>, se evaluará una segunda condición (la <code>condición 2</code>), y si esta última es <b style="color: green">verdadera</b> se realizará la <code>acción 2</code>. Finalmente, si no se cumple ninguna de las condiciones, se realizará la <code>acción 3</code>. En este ejemplo, sólo se evalúan dos condiciones. pero este tipo de estructura puede evaluar todas las condiciones que sean necesarios.
+        </p>
+        <b style="text-align: center;">Sintaxis</b>
+<pre><code class="language-cpp">
+    if(condicion1)
+        {
+            accion1;
+        }
+        else if(condicion2)
+            {
+                accion2;
+            }
+            else
+            {
+                accion3;
+            }
+</code></pre>
+        <p style="text-align: center;">
+            <i>Sintaxis en <b>C</b> de un <code>sino si</code>.</i>
+        </p>
+        <p>
+            A continuación, se muestra un ejemplo de cómo se aplica una estructura <code>sino si</code>.
+        </p>
+        <fieldset>
+            <legend><i>Ejemplo</i></legend>
+            <p>
+                Realizar un programa en <b>C</b> que decida si un número ingresado por teclado es mayor, menor o igual a cero, utilizando la estructura <code>sino si</code>.
+            </p>
+            <b>Solución</b>
+    <pre><code class="language-cpp">
+    #include&lt;stdio.h>
+    
+    int main()
+        {
+            int a;
+            printf("Introduce un número: ");
+            scanf("%i",&a);
+            if(a > 0)
+                {
+                    printf("El número es positivo. \n");
+                }
+                else if(a &lt; 0)
+                    {
+                        printf("El número es negativo. \n");
+                    }
+                    else
+                    {
+                        printf("El número es cero. \n");
+                    }
+        return 0;
+        }
+    </code></pre>
+        </fieldset>
+        </li>
+        </ol>
+        <fieldset>
+            <legend>Ejercicios</legend>
+            <ol>
+                <li>
+                    Realizar un programa en <code>C</code> que imprima en pantalla los días de la semana de acuerdo con el número de día ingresado por teclado. En caso de que el número de día sea invalido, imprimir en pantalla una advertencia. Utilizar una estructura condicional múltiple <b>switch</b>.
+                    <fieldset>
+                        <legend>Ejercicio 1:</legend>
+                        <iframe width="620" height="380" src="https://www.youtube.com/embed/Hrdmm8xbXQs" title="Concionales 2 ejericicio 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </fieldset>
+                </li>
+                <li>
+                    Realizar un programa en <code>C</code> que indique si se ha ingresado una vocal por teclado, y en caso afirmativo indicar de qué vocal se trata. En caso de que el dato no sea una vocal, indicarlo imprimiendo un mensaje de advertencia en pantalla. Utlizar una estructura condicional múltiple <b>switch</b>.
+                    <fieldset>
+                        <legend>Ejercicio 2:</legend>
+                        <iframe width="620" height="380" src="https://www.youtube.com/embed/rO48JVk6BcQ" title="Concionales 2 Ejercicio 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </fieldset>
+                </li>
+                <li>
+                    Realizar u  programa en <code>C</code> que solicite al usuario ingresar un número entero 1 y 12, y que imprima en pantalla el mes correspondiente. Además, si el número ingresado está fuera de rango el programa deberá imprimir un mensaje de error. Utilizar una estructura condicional múltiple <b>sino si</b>.
+
+                    <fieldset>
+                        <legend>Ejercicio 3:</legend>
+                        <iframe width="630" height="380" src="https://www.youtube.com/embed/eM5RSPcMocI" title="Condicionales 2 Ejercicio 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </fieldset>
+                </li>
+                <li>
+                    <p>
+                        Realizar un programa en <code>C</code> que solicite al usuario ingresar la temperatura en grados Celsius de un recipiente con agua, y que imprima en pantalla el estado del agua (sólido, liguido o gaseoso). Además, si la temperatura ingresada está fuera de rango (menor a -273°C) el programa deberá imprimir un mensaje de error. Utilizar una estructura condicional múltiple <b>sino si</b>.
+                    </p>
+                    <h4>Estados físicos del agua y su relación con la temperatura.</h4>
+                    <table>
+                        <thead>
+                            <th>Temperatura (°C)</th>
+                            <th>
+                                Estado del agua
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>100°C o más</td>
+                                <td>Gaseoso</td>
+                            </tr>
+                            <tr>
+                                <td>Entre 0°C y 100°C</td>
+                                <td>
+                                    Líquido
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>0°C o menos</td>
+                                <td>
+                                    Sólido
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>-273°C</td>
+                                <td>Error (Una temperatura teórica inalcanzable en la práctica, donde el movimiento molecular es prácticamente nulo y no se considera un estado de la materia.)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <fieldset>
+                        <legend>Ejercicio 4:</legend>
+                        <iframe width="630" height="380" src="https://www.youtube.com/embed/-ibaSEXuXPE" title="Condicionales 2 Ejercicio 4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </fieldset>
+                </li>
+            </ol>
+        </fieldset>
+        <script type="module" src="main.js"></script>
+    </body>
+</html>
